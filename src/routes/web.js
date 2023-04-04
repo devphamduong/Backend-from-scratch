@@ -4,5 +4,6 @@ const homeController = require('../controllers/homeController');
 
 router.get('/', homeController.getHomePage);
 router.post('/create-user', homeController.createUser);
+router.get('/create', homeController.getCreatePage);
 
 module.exports = router;
