@@ -3,9 +3,6 @@ const router = express.Router();
 const homeController = require('../controllers/homeController');
 
 router.get('/', homeController.getHomePage);
-
-router.get('/duongpc', (req, res) => {
-    res.render('sample.ejs');
-});
+router.get('/create-user', homeController.createUser);
 
 module.exports = router;

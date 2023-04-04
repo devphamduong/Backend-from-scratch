@@ -4,6 +4,10 @@ const getHomePage = (req, res) => {
     return res.render('home.ejs');
 };
 
+const createUser = (req, res) => {
+    return res.render('home.ejs');
+};
+
 module.exports = {
-    getHomePage
+    getHomePage, createUser
 };
