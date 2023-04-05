@@ -23,9 +23,10 @@ const getCreatePage = (req, res) => {
     return res.render('create.ejs');
 };
 
-const getUpdatePage = (req, res) => {
+const getUpdatePage = async (req, res) => {
     const userId = req.params.id;
-    return res.render('edit.ejs');
+    let user = await CRUDService.getUserById(userId);
+    return res.render('edit.ejs', { user });
 };
 
 module.exports = {
