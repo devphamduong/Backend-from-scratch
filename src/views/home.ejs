@@ -23,17 +23,46 @@
             <th>City</th>
             <th>Actions</th>
         </tr>
-        <%= JSON.stringify(listUsers) %>
+        <!-- <% for (let i=0; i < listUsers.length; i++) { %>
             <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
+                <td>
+                    <%= listUsers[i].id %>
+                </td>
+                <td>
+                    <%= listUsers[i].email %>
+                </td>
+                <td>
+                    <%= listUsers[i].name %>
+                </td>
+                <td>
+                    <%= listUsers[i].city %>
+                </td>
                 <td>
                     <button>Edit</button>
                     <button>Delete</button>
                 </td>
             </tr>
+            <% } %> -->
+        <% listUsers.forEach(function(user) { %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.city %>
+                </td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+            <% }); %>
     </table>
 </body>
 
