@@ -5,6 +5,6 @@ const homeController = require('../controllers/homeController');
 router.get('/', homeController.getHomePage);
 router.post('/create-user', homeController.createUser);
 router.get('/create', homeController.getCreatePage);
-router.get('/update', homeController.getUpdatePage);
+router.get('/update/:id', homeController.getUpdatePage);
 
 module.exports = router;
