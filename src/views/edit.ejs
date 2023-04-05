@@ -15,16 +15,17 @@
         <a href="/create">Create User</a>
     </div>
 
-    <form action="/create-user" method="post">
+    <form action="/update-user" method="post">
         <fieldset>
             <legend>Update a user:</legend>
+            <input type="hidden" name="id" value="<%= user.id %>"><br><br>
             <label>Email:</label>
             <input type="email" name="email" value="<%= user.email %>"><br><br>
             <label>Name:</label>
             <input type="text" name="name" value="<%= user.name %>"><br><br>
             <label>City:</label>
             <input type="text" name="city" value="<%= user.city %>"><br><br>
-            <button type="submit">Add new</button>
+            <button type="submit">Save changes</button>
         </fieldset>
     </form>
 

@@ -10,6 +10,11 @@ const getUserById = async (id) => {
     return results && results.length > 0 ? results[0] : {};
 };
 
+const updateUser = async (data) => {
+    const [results, fields] = await connection.query(`UPDATE Users SET email=?, name=?, city=? WHERE id=?`, [data.email, data.name, data.city, data.id]);
+    return results && results.length > 0 ? results[0] : {};
+};
+
 module.exports = {
-    getAllUsers, getUserById
+    getAllUsers, getUserById, updateUser
 };

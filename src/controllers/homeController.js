@@ -29,6 +29,13 @@ const getUpdatePage = async (req, res) => {
     return res.render('edit.ejs', { user });
 };
 
+const updateUser = async (req, res) => {
+    const { id, email, name, city } = req.body;
+    await CRUDService.updateUser({ id, email, name, city });
+    // return res.send('Done!');
+    res.redirect('/');
+};
+
 module.exports = {
-    getHomePage, createUser, getCreatePage, getUpdatePage
+    getHomePage, createUser, getCreatePage, getUpdatePage, updateUser
 };
