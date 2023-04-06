@@ -36,6 +36,13 @@ const updateUser = async (req, res) => {
     res.redirect('/');
 };
 
+const deleteUser = async (req, res) => {
+    const userId = req.params.id;
+    await CRUDService.deleteUser(userId);
+    // return res.send('Done!');
+    res.redirect('/');
+};
+
 module.exports = {
-    getHomePage, createUser, getCreatePage, getUpdatePage, updateUser
+    getHomePage, createUser, getCreatePage, getUpdatePage, updateUser, deleteUser
 };
