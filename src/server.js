@@ -18,6 +18,9 @@ configViewEngine(app);
 //khai báo route
 app.use('/', webRoutes);
 
+//test connection
+connection();
+
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);
 });
