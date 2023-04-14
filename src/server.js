@@ -3,7 +3,6 @@ const express = require('express');
 const configViewEngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
 const connection = require('./config/database');
-const Kitten = require('./models/Kitten');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -18,9 +17,6 @@ configViewEngine(app);
 
 //khai báo route
 app.use('/', webRoutes);
-
-const cat = new Kitten({ name: 'Silence' });
-cat.save();
 
 //test connection
 (async () => {

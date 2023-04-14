@@ -1,8 +1,10 @@
 const connection = require('../config/database');
 const CRUDService = require('../services/CRUDService');
+const User = require('../models/user');
 
 const getHomePage = async (req, res) => {
-    let results = await CRUDService.getAllUsers();
+    // let results = await CRUDService.getAllUsers();
+    let results = [];
     return res.render('home.ejs', { listUsers: results });
 };
 
@@ -15,7 +17,10 @@ const createUser = async (req, res) => {
     //         return res.send('done');
     //     }
     // );
-    const [results, fields] = await connection.query(`INSERT INTO hoidanit.Users (email, name, city) VALUES(?, ?, ?)`, [email, name, city]);
+    // const [results, fields] = await connection.query(`INSERT INTO hoidanit.Users (email, name, city) VALUES(?, ?, ?)`, [email, name, city]);
+    await User.create({
+        name, email, city
+    });
     res.send('Done!');
 };
 
