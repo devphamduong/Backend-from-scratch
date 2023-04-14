@@ -33,8 +33,7 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     const userId = req.params.id;
-    await CRUDService.deleteUser(userId);
-    // return res.send('Done!');
+    await User.deleteOne({ _id: userId });
     res.redirect('/');
 };
 
