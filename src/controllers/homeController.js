@@ -21,14 +21,13 @@ const getCreatePage = (req, res) => {
 
 const getUpdatePage = async (req, res) => {
     const userId = req.params.id;
-    let user = await CRUDService.getUserById(userId);
+    let user = await User.findById(userId).exec();
     return res.render('edit.ejs', { user });
 };
 
 const updateUser = async (req, res) => {
     const { id, email, name, city } = req.body;
-    await CRUDService.updateUser({ id, email, name, city });
-    // return res.send('Done!');
+    await User.updateOne({ _id: id }, { name, email, city });
     res.redirect('/');
 };
 
