@@ -8,6 +8,17 @@ const getUsers = async (req, res) => {
     });
 };
 
+const createUser = async (req, res) => {
+    let { email, name, city } = req.body;
+    let user = await User.create({
+        name, email, city
+    });
+    return res.status(200).json({
+        errCode: 0,
+        data: user
+    });
+};
+
 module.exports = {
-    getUsers
+    getUsers, createUser
 };
