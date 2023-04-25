@@ -19,6 +19,15 @@ const createUser = async (req, res) => {
     });
 };
 
+const updateUser = async (req, res) => {
+    const { id, email, name, city } = req.body;
+    let user = await User.updateOne({ _id: id }, { name, email, city });
+    return res.status(200).json({
+        errCode: 0,
+        data: user
+    });
+};
+
 module.exports = {
-    getUsers, createUser
+    getUsers, createUser, updateUser
 };
