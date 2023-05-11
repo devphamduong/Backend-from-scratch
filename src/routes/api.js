@@ -7,4 +7,7 @@ routerAPI.post('/users', apiController.createUser);
 routerAPI.put('/users', apiController.updateUser);
 routerAPI.delete('/users', apiController.deleteUser);
 
+routerAPI.post('/file', apiController.uploadSingleFile);
+routerAPI.post('/files', apiController.uploadMultipleFiles);
+
 module.exports = routerAPI;
