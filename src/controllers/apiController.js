@@ -43,7 +43,6 @@ const uploadSingleFile = async (req, res) => {
         return res.status(400).send('No files were uploaded.');
     }
     let result = await fileService.uploadSingleFile(req.files.image);
-    console.log(result);
 };
 
 const uploadMultipleFiles = async (req, res) => {
@@ -59,7 +58,6 @@ const uploadMultipleFiles = async (req, res) => {
     } else {
         return await uploadSingleFile(req, res);
     }
-    console.log(result);
 };
 
 module.exports = {
