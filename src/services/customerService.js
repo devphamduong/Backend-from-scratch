@@ -37,6 +37,16 @@ const deleteUser = async (id) => {
     return;
 };
 
+const createArrayCustomers = async (arr) => {
+    try {
+        let result = await Customer.insertMany(arr);
+        return result;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+};
+
 module.exports = {
-    createCustomer, getAllUsers, getUserById, updateUser, deleteUser
+    createCustomer, getAllUsers, getUserById, updateUser, deleteUser, createArrayCustomers
 };
