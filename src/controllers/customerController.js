@@ -38,5 +38,12 @@ module.exports = {
                 data: customers
             });
         }
+    },
+    getCustomers: async (req, res) => {
+        let customers = await customerService.getCustomers();
+        return res.status(200).json({
+            errCode: 0,
+            data: customers
+        });
     }
 };
