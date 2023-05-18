@@ -49,19 +49,28 @@ module.exports = {
 
     updateCustomer: async (req, res) => {
         const { id, email, name, address } = req.body;
-        let customer = await customerService.updateCustomer(id, email, name, address);
+        let result = await customerService.updateCustomer(id, email, name, address);
         return res.status(200).json({
             errCode: 0,
-            data: customer
+            data: result
         });
     },
 
     deleteCustomer: async (req, res) => {
         const id = req.body.id;
-        let customer = await customerService.deleteCustomer(id);
+        let result = await customerService.deleteCustomer(id);
         return res.status(200).json({
             errCode: 0,
-            data: customer
+            data: result
         });
-    }
+    },
+
+    deleteArrayCustomers: async (req, res) => {
+        const ids = req.body.customersId;
+        let result = await customerService.deleteArrayCustomers(ids);
+        return res.status(200).json({
+            errCode: 0,
+            data: result
+        });
+    },
 };

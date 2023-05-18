@@ -29,7 +29,7 @@ const updateCustomer = async (id, email, name, address) => {
 
 const deleteCustomer = async (id) => {
     try {
-        let result = await Customer.deleteOne({ _id: id });
+        let result = await Customer.deleteById({ _id: id });
         return result;
     } catch (error) {
         console.log(error);
@@ -49,8 +49,18 @@ const createArrayCustomers = async (arr) => {
 
 const getCustomers = async () => {
     try {
-        let results = await Customer.find({});
-        return results;
+        let result = await Customer.find({});
+        return result;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+};
+
+const deleteArrayCustomers = async (ids) => {
+    try {
+        let result = await Customer.delete({ _id: { $in: ids } });
+        return result;
     } catch (error) {
         console.log(error);
         return null;
@@ -58,5 +68,5 @@ const getCustomers = async () => {
 };
 
 module.exports = {
-    createCustomer, updateCustomer, deleteCustomer, createArrayCustomers, getCustomers
+    createCustomer, updateCustomer, deleteCustomer, createArrayCustomers, getCustomers, deleteArrayCustomers
 };

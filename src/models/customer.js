@@ -11,10 +11,15 @@ const customerSchema = new mongoose.Schema(
         image: String,
         description: String,
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+        statics: {
+
+        }
+    }
 );
 
-customerSchema.plugin(mongoose_delete);
+customerSchema.plugin(mongoose_delete, { overrideMethods: 'all' });
 
 const Customer = mongoose.model("Customer", customerSchema);
 
