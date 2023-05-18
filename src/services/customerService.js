@@ -17,24 +17,24 @@ const createCustomer = async (customerData) => {
     }
 };
 
-const getAllUsers = async () => {
-    const [results, fields] = await connection.query(`SELECT * FROM hoidanit.Users`);
-    return results;
+const updateCustomer = async (id, email, name, address) => {
+    try {
+        let result = await Customer.updateOne({ _id: id }, { name, email, address });
+        return result;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
 };
 
-const getUserById = async (id) => {
-    const [results, fields] = await connection.query(`SELECT * FROM hoidanit.Users where id = ?`, [id]);
-    return results && results.length > 0 ? results[0] : {};
-};
-
-const updateUser = async (data) => {
-    const [results, fields] = await connection.query(`UPDATE Users SET email=?, name=?, city=? WHERE id=?`, [data.email, data.name, data.city, data.id]);
-    return;
-};
-
-const deleteUser = async (id) => {
-    const [results, fields] = await connection.query(`DELETE FROM Users WHERE id=? `, [id]);
-    return;
+const deleteCustomer = async (id) => {
+    try {
+        let result = await Customer.deleteOne({ _id: id });
+        return result;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
 };
 
 const createArrayCustomers = async (arr) => {
@@ -58,5 +58,5 @@ const getCustomers = async () => {
 };
 
 module.exports = {
-    createCustomer, getAllUsers, getUserById, updateUser, deleteUser, createArrayCustomers, getCustomers
+    createCustomer, updateCustomer, deleteCustomer, createArrayCustomers, getCustomers
 };

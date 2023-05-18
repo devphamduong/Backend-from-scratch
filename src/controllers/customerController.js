@@ -45,5 +45,23 @@ module.exports = {
             errCode: 0,
             data: customers
         });
+    },
+
+    updateCustomer: async (req, res) => {
+        const { id, email, name, address } = req.body;
+        let customer = await customerService.updateCustomer(id, email, name, address);
+        return res.status(200).json({
+            errCode: 0,
+            data: customer
+        });
+    },
+
+    deleteCustomer: async (req, res) => {
+        const id = req.body.id;
+        let customer = await customerService.deleteCustomer(id);
+        return res.status(200).json({
+            errCode: 0,
+            data: customer
+        });
     }
 };
