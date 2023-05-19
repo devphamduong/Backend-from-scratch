@@ -18,4 +18,8 @@ routerAPI.put('/customers', customerController.updateCustomer);
 routerAPI.delete('/customers', customerController.deleteCustomer);
 routerAPI.delete('/customers-many', customerController.deleteArrayCustomers);
 
+routerAPI.get('/info', (req, res) => {
+    res.send(req.query.name);
+});
+
 module.exports = routerAPI;
