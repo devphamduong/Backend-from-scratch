@@ -21,5 +21,8 @@ routerAPI.delete('/customers-many', customerController.deleteArrayCustomers);
 routerAPI.get('/info', (req, res) => {
     res.send(req.query.name);
 });
+routerAPI.get('/info/:address', (req, res) => {
+    res.send(req.params.address);
+});
 
 module.exports = routerAPI;
