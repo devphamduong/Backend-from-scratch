@@ -42,10 +42,10 @@ module.exports = {
     },
 
     getCustomers: async (req, res) => {
-        const { limit, page, name } = req.query;
+        const { limit, page } = req.query;
         let result = null;
         if (limit && page) {
-            result = await customerService.getCustomers(limit, page, name);
+            result = await customerService.getCustomers(limit, page, req.query);
         } else {
             result = await customerService.getCustomers();
         }
