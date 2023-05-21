@@ -25,6 +25,7 @@ module.exports = {
             data: customer
         });
     },
+
     createArrayCustomers: async (req, res) => {
         let customers = await customerService.createArrayCustomers(req.body.customers);
         if (customers) {
@@ -39,11 +40,18 @@ module.exports = {
             });
         }
     },
+
     getCustomers: async (req, res) => {
-        let customers = await customerService.getCustomers();
+        const { limit, page, name } = req.query;
+        let result = null;
+        if (limit && page) {
+            result = await customerService.getCustomers(limit, page, name);
+        } else {
+            result = await customerService.getCustomers();
+        }
         return res.status(200).json({
             errCode: 0,
-            data: customers
+            data: result
         });
     },
 
